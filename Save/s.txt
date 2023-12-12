@@ -1,0 +1,1 @@
+{"Replay":false,"Result":false,"Attemps":9,"Letter":"","Words":"___r__","Word":"entree","LooseLetter":["l","o","p","l","o","l","p","clear","","","","","","","",""],"WinLetter":["","","","","","","","","","","","","","","",""]}

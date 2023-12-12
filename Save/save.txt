@@ -1,0 +1,1 @@
+{"Replay":false,"Result":false,"Attemps":5,"Letter":"","Words":"_rap_a_","Word":"drapeau","LooseLetter":["f","c","s","w","k","","","","","","","","","","",""],"WinLetter":["","_r_p___","","_rap_a_","","","","","","","","","","","",""]}
