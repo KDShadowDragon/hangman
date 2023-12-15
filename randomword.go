@@ -7,8 +7,9 @@ import (
 	"os"
 )
 
-func RandomWord(filename string) string {
+func RandomWord(filename string) (string, string) {
 	var word string
+	var words string
 	var stop error
 	arg_len := len(os.Args[2:])
 	if arg_len < 1 {
@@ -26,7 +27,10 @@ func RandomWord(filename string) string {
 			os.Exit(1)
 		}
 	}
-	return word
+	for len(word) != len(words) {
+		words += "_"
+	}
+	return word, words
 }
 
 func loadWordList(filename string) (string, error) {

@@ -19,7 +19,7 @@ type HanGman struct {
 
 func Hangman(filename string, filename2 string) {
 	var hangman HanGman
-	hangman.Word = RandomWord(filename)
+	hangman.Word, hangman.Words = RandomWord(filename)
 	for i, _ := range hangman.Word {
 		i++
 		hangman.Words += "_"
