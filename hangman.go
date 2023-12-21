@@ -122,7 +122,7 @@ func Hint(hangman HanGman) string {
 	if !yes {
 		i := rand.Intn(len(hangman.Word))
 		hangman.Words = hangman.Words[:i] + string(hangman.Word[i]) + hangman.Words[i+1:]
-		hangman.Words = CheckRecurence(hangman, string(hangman.Word[i]))
+		hangman.Words = CheckRecurence(&hangman, string(hangman.Word[i]))
 		hangman.LooseLetter[hangman.Attemps] = string(hangman.Word[i])
 	}
 	return hangman.Words
