@@ -94,7 +94,7 @@ func Hangman(filename string, filename2 string) {
 	}
 }
 
-func CheckRecurence(hangman *HanGman, use string) string {
+func CheckRecurence(hangman HanGman, use string) string {
 	for i := 0; i < len(hangman.Words); i++ {
 		if string(hangman.Word[i]) == use {
 			hangman.Words = hangman.Words[:i] + use + hangman.Words[i+1:]
@@ -122,7 +122,7 @@ func Hint(hangman HanGman) string {
 	if !yes {
 		i := rand.Intn(len(hangman.Word))
 		hangman.Words = hangman.Words[:i] + string(hangman.Word[i]) + hangman.Words[i+1:]
-		hangman.Words = CheckRecurence(&hangman, string(hangman.Word[i]))
+		hangman.Words = CheckRecurence(hangman, string(hangman.Word[i]))
 		hangman.LooseLetter[hangman.Attemps] = string(hangman.Word[i])
 	}
 	return hangman.Words
