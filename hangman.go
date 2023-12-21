@@ -103,7 +103,7 @@ func CheckRecurence(hangman *HanGman, use string) string {
 	return hangman.Words
 }
 
-func Hint(hangman *HanGman) string {
+func Hint(hangman HanGman) string {
 	var compteur int
 	maxgive := len(hangman.Word)/2 - 1
 	if maxgive < 1 {
