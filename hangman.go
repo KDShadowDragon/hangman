@@ -24,27 +24,6 @@ func Hangman(filename string, filename2 string) {
 		i++
 		hangman.Words += "_"
 	}
-	var compteur int
-	maxgive := len(hangman.Word)/2 - 1
-	if maxgive < 1 {
-		maxgive = 1
-	}
-	yes := false
-	hintr := rand.Intn(maxgive)
-	for compteur < hintr {
-		i := rand.Intn(len(hangman.Word))
-		if hangman.Words[i] == '_' {
-			hangman.Words = hangman.Words[:i] + string(hangman.Word[i]) + hangman.Words[i+1:]
-			hangman.LooseLetter[hangman.Attemps] = string(hangman.Word[i])
-			yes = true
-		}
-	}
-	if !yes {
-		i := rand.Intn(len(hangman.Word))
-		hangman.Words = hangman.Words[:i] + string(hangman.Word[i]) + hangman.Words[i+1:]
-		hangman.Words = CheckRecurence(&hangman, string(hangman.Word[i]))
-		hangman.LooseLetter[hangman.Attemps] = string(hangman.Word[i])
-	}
 	for hangman.Attemps = 0; hangman.Attemps != 11; {
 		fmt.Println("\n", HangmanArt(&hangman))
 		fmt.Println(AsciiDraw(filename2, hangman.Words))
@@ -122,4 +101,28 @@ func CheckRecurence(hangman *HanGman, use string) string {
 		}
 	}
 	return hangman.Words
+}
+
+func Hint(hangman *HanGman) {
+	var compteur int
+	maxgive := len(hangman.Word)/2 - 1
+	if maxgive < 1 {
+		maxgive = 1
+	}
+	yes := false
+	hintr := rand.Intn(maxgive)
+	for compteur < hintr {
+		i := rand.Intn(len(hangman.Word))
+		if hangman.Words[i] == '_' {
+			hangman.Words = hangman.Words[:i] + string(hangman.Word[i]) + hangman.Words[i+1:]
+			hangman.LooseLetter[hangman.Attemps] = string(hangman.Word[i])
+			yes = true
+		}
+	}
+	if !yes {
+		i := rand.Intn(len(hangman.Word))
+		hangman.Words = hangman.Words[:i] + string(hangman.Word[i]) + hangman.Words[i+1:]
+		hangman.Words = CheckRecurence(hangman, string(hangman.Word[i]))
+		hangman.LooseLetter[hangman.Attemps] = string(hangman.Word[i])
+	}
 }
