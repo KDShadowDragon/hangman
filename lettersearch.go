@@ -1,22 +1,16 @@
 package hangman
 
-import (
-	"fmt"
-)
-
 func IsLetter(s string) bool {
 	return len(s) == 1 && s >= "a" && s <= "z" || s >= "A" && s <= "Z"
 }
 
-func LetterSearch(hangman *HanGman) (bool, string) {
-	var wordtest string
-	fmt.Scan(&wordtest)
+func LetterSearch(hangman *HanGman, input string) (bool, string) {
 	hangman.Result = false
 	test := []rune(hangman.Words)
-	if len(wordtest) == 1 {
+	if len(input) == 1 {
 		for j := 0; j < len(hangman.Words); j++ {
-			if string(hangman.Word[j]) == wordtest {
-				test[j] = rune(wordtest[0])
+			if string(hangman.Word[j]) == input {
+				test[j] = rune(input[0])
 				hangman.Result = true
 				hangman.WinLetter[hangman.Attemps] = string(test)
 			}
@@ -25,8 +19,8 @@ func LetterSearch(hangman *HanGman) (bool, string) {
 	if hangman.Result {
 		hangman.Words = string(test)
 	}
-	if hangman.Word == wordtest {
-		wordtest = "!"
+	if hangman.Word == input {
+		input = "!"
 	}
-	return hangman.Result, wordtest
+	return hangman.Result, input
 }

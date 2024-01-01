@@ -29,7 +29,7 @@ func Hangman(filename string, filename2 string) {
 		fmt.Println("Letter Already Choose : ", hangman.LooseLetter)
 		fmt.Println("Attemps Left : ", hangman.Attemps, " Max 10 attemps")
 		fmt.Print("Choose a Letter: ")
-		hangman.Result, hangman.LooseLetter[hangman.Attemps] = LetterSearch(&hangman)
+		hangman.Result, hangman.LooseLetter[hangman.Attemps] = LetterSearch(&hangman, "input")
 		if hangman.LooseLetter[hangman.Attemps] == "Stop" || hangman.LooseLetter[hangman.Attemps] == "stop" {
 			hangman.LooseLetter[hangman.Attemps] = ""
 			Save(&hangman)
