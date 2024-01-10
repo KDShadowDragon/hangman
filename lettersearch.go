@@ -18,7 +18,7 @@ func LetterSearch(hangman *HanGman, input string) (bool, string) {
 			return hangman.Result, ""
 		} else {
 			compteur++
-			hangman.Result = true
+			hangman.Result = false
 		}
 	}
 	if len(input) == 1 {
