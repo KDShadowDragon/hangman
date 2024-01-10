@@ -15,6 +15,8 @@ func LetterSearch(hangman *HanGman, input string) (bool, string) {
 		if hangman.LooseLetter[compteur] == input {
 			hangman.Result = true
 			return hangman.Result, ""
+		} else {
+			compteur++
 		}
 	}
 	if len(input) == 1 {
