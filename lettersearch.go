@@ -12,7 +12,7 @@ func LetterSearch(hangman *HanGman, input string) (bool, string) {
 	hangman.Result = false
 	test := []rune(hangman.Words)
 	compteur := hangman.Attemps
-	for compteur != 10 {
+	for compteur != 11 {
 		if hangman.LooseLetter[compteur] == input {
 			hangman.Result = true
 			return hangman.Result, ""
