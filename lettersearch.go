@@ -6,6 +6,7 @@ func IsLetter(s string) bool {
 
 func LetterSearch(hangman *HanGman, input string) (bool, string) {
 	if !IsLetter(input) {
+		hangman.Result = true
 		return hangman.Result, ""
 	}
 	hangman.Result = false
