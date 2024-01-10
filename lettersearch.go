@@ -1,7 +1,7 @@
 package hangman
 
 func IsLetter(s string) bool {
-	return len(s) == 1 && s >= "a" && s <= "z" || s >= "A" && s <= "Z"
+	return s >= "a" && s <= "z" || s >= "A" && s <= "Z"
 }
 
 func LetterSearch(hangman *HanGman, input string) (bool, string) {
@@ -18,7 +18,6 @@ func LetterSearch(hangman *HanGman, input string) (bool, string) {
 			return hangman.Result, ""
 		} else {
 			compteur++
-			hangman.Result = false
 		}
 	}
 	if len(input) == 1 {
