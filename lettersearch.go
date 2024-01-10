@@ -5,8 +5,18 @@ func IsLetter(s string) bool {
 }
 
 func LetterSearch(hangman *HanGman, input string) (bool, string) {
+	if !IsLetter(input) {
+		return hangman.Result, ""
+	}
 	hangman.Result = false
 	test := []rune(hangman.Words)
+	compteur := hangman.Attemps
+	for compteur != 10 {
+		if hangman.LooseLetter[compteur] == input {
+			hangman.Result = true
+			return hangman.Result, ""
+		}
+	}
 	if len(input) == 1 {
 		for j := 0; j < len(hangman.Words); j++ {
 			if string(hangman.Word[j]) == input {
